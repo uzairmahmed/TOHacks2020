@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; //some lines
+import React, { useState } from 'react'; //some
 
 import { TouchableOpacity, FlatList } from "react-native";
 import { View, Text, TextField, Card, Button, Image } from 'react-native-ui-lib';
