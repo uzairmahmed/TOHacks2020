@@ -7,12 +7,13 @@ export default class SearchBar extends Component {
   render() {
     return (
       <View>
-          <Card center style={STYLES.card, STYLES.search}>
-            <TextField
-              centered
-              floatingPlaceholder
-              placeholder="Search"></TextField>
-          </Card>
+        <View style={STYLES.card, STYLES.search}>
+          <TextField
+            text40L
+            style={STYLES.searchbox}
+            rightIconSource={require('../assets/splash.png')}
+            placeholder="Search"></TextField>
+          </View>
       </View>
     );
   }

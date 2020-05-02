@@ -23,7 +23,6 @@ export default function Dashboard() {
   
   return (
     <View style={STYLES.container}>
-      <SearchBar />
       <Card center style={STYLES.card}>
           <Image
             style={STYLES.map}
@@ -32,8 +31,9 @@ export default function Dashboard() {
           <Button label="Login" onPress={getNearbyStores.bind()} style={STYLES.blockButton} ></Button>
       </Card>
       
-      <Card center style={STYLES.card}>
+      <View center style={STYLES.listCard}>
         <FlatList
+          style={STYLES.store_list}
             data={stores}
             renderItem={itemData => (
               < StoreBooking
@@ -42,7 +42,7 @@ export default function Dashboard() {
               />
             )}
         />
-      </Card>
+      </View>
     </View>
   );
   

@@ -11,7 +11,7 @@ import DashboardPage from "./components/DashboardPage.js"
 export default function App() {
     return (
       <NativeRouter>
-        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/" component={DashboardPage} />
         <Route path="/dash" component={DashboardPage} />
       </NativeRouter>
     );
