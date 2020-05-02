@@ -5,6 +5,8 @@ import { View, Text, Card, TextField, Button } from 'react-native-ui-lib';
 
 import { NativeRouter, Route, Link, useHistory } from "react-router-native";
 
+import STYLES from "./ComponentStyles.js"
+
 export default function LoginPage() {
     const history = useHistory();
 
@@ -14,9 +16,9 @@ export default function LoginPage() {
 
     return (
         <NativeRouter>
-            <View>
-                <Card center>
-                    <Text> Login.</Text>
+            <View style={STYLES.container}>
+                <Card center style={STYLES.login, STYLES.card}>
+                    <Text style={STYLES.titleText} > Login.</Text>
                     <TextField
                         centered
                         placeholder="Username."></TextField>
@@ -24,7 +26,7 @@ export default function LoginPage() {
                         centered
                         placeholder="Password."></TextField>
 
-                    <Button label="Login" onPress={goToDashBoard.bind()}></Button>
+                    <Button label="Login" onPress={goToDashBoard.bind()} style={STYLES.blockButton} ></Button>
 
                 </Card>
             </View>
