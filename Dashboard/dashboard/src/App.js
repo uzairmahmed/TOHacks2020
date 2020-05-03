@@ -7,12 +7,16 @@ export default class App extends Component {
 	}
 	updateCode = () => {
 		axios.get('https://tohacks2020-276104.uc.r.appspot.com/update').then(({ data }) => {
+			console.log(data);
+			console.log(typeof data);
+			data['list'] = data['sendlist'];
 			if (data.latestInfo != this.state.latestInfo) {
 				this.setState({ colorFont: { backgroundColor: '#e43f5a', color: '#fff' } });
 				setTimeout(() => {
 					this.setState({ colorFont: { color: '#e43f5a', backgroundColor: '#fff' } });
 				}, 750);
 			}
+			console.log(typeof data);
 			this.setState({ ...data });
 		});
 		setTimeout(this.updateCode, 5000);
@@ -25,20 +29,10 @@ export default class App extends Component {
 			colorFont: { color: '#e43f5a', backgroundColor: '#fff' },
 			latestInfo: 'John just entered the store',
 			list: [
-				{ name: 'Uz0air', time: '5:00 PM' },
-				{ name: 'Uz1air', time: '6:00 PM' },
-				{ name: 'Uz2air', time: '7:00 PM' },
-				{ name: 'Uz3air', time: '8:00 PM' },
-				{ name: 'Uz4air', time: '9:00 PM' },
-				{ name: 'Uz5air', time: '10:00 PM' },
-				{ name: 'Uz0air', time: '5:00 PM' },
-				{ name: 'Uz1air', time: '6:00 PM' },
-				{ name: 'Uz2air', time: '7:00 PM' },
-				{ name: 'Uz4air', time: '9:00 PM' },
-				{ name: 'Uz5air', time: '10:00 PM' },
-				{ name: 'Uz3air', time: '8:00 PM' },
-				{ name: 'Uz4air', time: '9:00 PM' },
-				{ name: 'Uz5air', time: '10:00 PM' }
+				{ name: 'Farhan', time: '5:00 PM' },
+				{ name: 'Niranjan', time: '6:00 PM' },
+				{ name: 'Shoeb', time: '7:00 PM' },
+				{ name: 'Uzair', time: '8:00 PM' }
 			]
 		};
 	}
@@ -54,7 +48,7 @@ export default class App extends Component {
 									<div className="list-item_number">{i + 1}</div>
 									<div className="list-item_info">
 										<div className="list-item_name">{item.name}</div>
-										<div className="list-item_time">{item.time}</div>
+										<div className="list-item_time">Booked at {item.time}</div>
 									</div>
 								</div>
 							);
