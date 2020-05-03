@@ -2,18 +2,17 @@ import React, { Component } from 'react';
 
 import { Text, View, FlatList, Platform } from 'react-native';
 
-import { Colors, Card, Button, Slider,DateTimePicker } from 'react-native-ui-lib';
-
-//import DateTimePicker from '@react-native-community/datetimepicker';
+import { Colors, Card, Button, Slider, DateTimePicker } from 'react-native-ui-lib';
 
 import STYLES from "./ComponentStyles.js"
+import TimeSlot from "./TimeSlot.js"
 
 export default class StoreBook extends Component {
     constructor(props) {
         super(props);
         this.state = {
             times: [],
-            date: [2020,5,3],
+            date: [2020, 5, 3],
             length: 10,
         };
     }
@@ -45,7 +44,7 @@ export default class StoreBook extends Component {
         console.log(this.state.length);
     }
 
-    render() {      
+    render() {
         return (
             <View style={STYLES.container}>
                 <Card center style={STYLES.popup, STYLES.card}>
@@ -55,7 +54,7 @@ export default class StoreBook extends Component {
                     <Text style={STYLES.subtitleText}>Choose a Date</Text>
 
                     <DateTimePicker
-                        value={new Date(2020,4,3,0,0,0,0)}
+                        value={new Date(2020, 4, 3, 0, 0, 0, 0)}
                         mode={'date'}
                         display="default"
                         onChange={this.onDateValueChange}
@@ -82,7 +81,11 @@ export default class StoreBook extends Component {
                             style={STYLES.store_list}
                             data={this.state.times}
                             renderItem={itemData => (
-                                <Text> {itemData.item.value} </Text>
+                                <TimeSlot
+                                    name={this.props.storename}
+                                    hour1={2}
+                                    hour2={4}
+                                />
                             )}
                         />
                     </View>

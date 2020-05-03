@@ -55,15 +55,6 @@ const styles = StyleSheet.create({
     popup: {
         marginHorizontal: 10 
     },
-    search: {
-        justifyContent: "center",
-        marginHorizontal: 40
-    },
-    searchbox: {
-        width: "100%",
-        justifyContent:"space-around",
-        backgroundColor: fgColor,
-    },
     map: {
         borderRadius:10,
         justifyContent: "center",
@@ -81,6 +72,13 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         marginVertical:10,
         paddingHorizontal: 40,
+        padding: 20,
+        borderRadius: 10
+    },
+    time_item: {
+        flexDirection: "row",
+        justifyContent:"space-between",
+        marginVertical:10,
         padding: 20,
         borderRadius: 10
     }
