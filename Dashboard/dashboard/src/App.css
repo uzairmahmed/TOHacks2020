@@ -5,9 +5,18 @@
   margin: 10px;
 }
 
+.label {
+  margin: 10px;
+}
+
+.bodytext{
+  
+}
+
 .app {
   height: 100vh;
   background: white;
+  justify-content: space-evenly;
 }
 
 .table {
@@ -16,5 +25,13 @@
   border: 2px solid black;
   width:30%;
   height: 800px;
+  margin-bottom: 10px;
+}
+
+.qrcode {
+  border: 2px solid black;
+  width: 300PX;
+  background-color: lightblue;
+  margin: 10px;
   margin-bottom: 10px;
 }
