@@ -5,6 +5,8 @@ import { View, Text, Card, Button, Image } from 'react-native-ui-lib';
 
 import STYLES from "./ComponentStyles.js"
 import StoreInfo from "./StoreInfo.js"
+import QRScan from "./QRScan.js"
+
 
 export default class Home extends Component {
     constructor(props) {
@@ -28,6 +30,7 @@ export default class Home extends Component {
     render() {
         return (
             <View style={STYLES.container}>
+                <QRScan />
 
                 <Button label="Check In" style={STYLES.blockButton} ></Button>
                 <Card center style={STYLES.card}>
