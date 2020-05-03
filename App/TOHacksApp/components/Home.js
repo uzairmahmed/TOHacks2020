@@ -10,10 +10,13 @@ export default class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			stores: []
+			stores: [],
+			sonValue: ''
 		};
 	}
-
+	updateValue(newValue) {
+		this.setState({ sonValue: newValue });
+	}
 	getNearbyStores = () => {
 		var i;
 		var tempArr = [];
