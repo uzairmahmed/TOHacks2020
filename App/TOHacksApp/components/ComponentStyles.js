@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         padding: 20
     },
     blockButton: {
-        backgroundColor: accentColor1,
+        backgroundColor: textColor,
         fontSize:10
     },
     search: {
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
     store_item: {
         flexDirection: "row",
         justifyContent:"space-between",
-        backgroundColor: bgColor,
         marginVertical:10,
         paddingHorizontal: 40,
         padding: 20,

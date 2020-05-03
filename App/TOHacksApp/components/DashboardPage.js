@@ -5,7 +5,7 @@ import { View, Text, TextField, Card, Button, Image } from 'react-native-ui-lib'
 
 import STYLES from "./ComponentStyles.js"
 import SearchBar from "./SearchBar.js"
-import StoreBooking from "./StoreBooking.js"
+import StoreInfo from "./StoreInfo.js"
 
 
 export default function Dashboard() {
@@ -36,7 +36,7 @@ export default function Dashboard() {
           style={STYLES.store_list}
             data={stores}
             renderItem={itemData => (
-              < StoreBooking
+              < StoreInfo
                 name={itemData.item.value}
                 address = {itemData.item.key}
               />
