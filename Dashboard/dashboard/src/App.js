@@ -6,7 +6,7 @@ export default class App extends Component {
 		this.updateCode();
 	}
 	updateCode = () => {
-		axios.get('http://localhost:3000/update').then(({ data }) => {
+		axios.get('https://tohacks2020-276104.uc.r.appspot.com/update').then(({ data }) => {
 			if (data.latestInfo != this.state.latestInfo) {
 				this.setState({ colorFont: { backgroundColor: '#e43f5a', color: '#fff' } });
 				setTimeout(() => {
@@ -71,7 +71,11 @@ export default class App extends Component {
 						</div>
 					</div>
 					<div className="body-dashboard_QR">
-						<img className="body-dashboard_QR-image" src={require('./qrcode.png')} />
+						<img
+							className="body-dashboard_QR-image"
+							src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png"
+							// src={require('./qrcode.png')}
+						/>
 						<div className="body-dashboard_QR-text">Scan the QR code to queue in line</div>
 						<div className="body-dashboard_QR-update" style={this.state.colorFont}>
 							{this.state.latestInfo}
