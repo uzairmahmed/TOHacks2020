@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/TOHacks2020/static/css/main.ebb5c7fc.chunk.css",
+    "main.js": "/TOHacks2020/static/js/main.0cdcef38.chunk.js",
+    "main.js.map": "/TOHacks2020/static/js/main.0cdcef38.chunk.js.map",
+    "runtime-main.js": "/TOHacks2020/static/js/runtime-main.ec273c74.js",
+    "runtime-main.js.map": "/TOHacks2020/static/js/runtime-main.ec273c74.js.map",
+    "static/js/2.8fbba52c.chunk.js": "/TOHacks2020/static/js/2.8fbba52c.chunk.js",
+    "static/js/2.8fbba52c.chunk.js.map": "/TOHacks2020/static/js/2.8fbba52c.chunk.js.map",
+    "index.html": "/TOHacks2020/index.html",
+    "precache-manifest.c26373a4a1344518178671430e3717c5.js": "/TOHacks2020/precache-manifest.c26373a4a1344518178671430e3717c5.js",
+    "service-worker.js": "/TOHacks2020/service-worker.js",
+    "static/css/main.ebb5c7fc.chunk.css.map": "/TOHacks2020/static/css/main.ebb5c7fc.chunk.css.map",
+    "static/js/2.8fbba52c.chunk.js.LICENSE.txt": "/TOHacks2020/static/js/2.8fbba52c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec273c74.js",
+    "static/js/2.8fbba52c.chunk.js",
+    "static/css/main.ebb5c7fc.chunk.css",
+    "static/js/main.0cdcef38.chunk.js"
+  ]
+}
