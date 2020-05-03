@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import React, { Component } from 'react';
+import { FlatList } from 'react-native';
 
 import { View, Text, Card, Button, Image } from 'react-native-ui-lib';
 
@@ -9,23 +9,21 @@ import QRScan from "./QRScan.js"
 
 
 export default class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            stores: [],
-        };
-    }
+	constructor(props) {
+		super(props);
+		this.state = {
+			stores: []
+		};
+	}
 
-
-    getNearbyStores = () => {
-        var i;
-        var tempArr = []
-        for (i = 0; i < 21; i++) {
-            tempArr.push({ key: Math.random().toString(), value: i.toString() });
-        }
-        this.setState({ stores: tempArr });
-    }
-
+	getNearbyStores = () => {
+		var i;
+		var tempArr = [];
+		for (i = 0; i < 21; i++) {
+			tempArr.push({ key: Math.random().toString(), value: i.toString() });
+		}
+		this.setState({ stores: tempArr });
+	};
 
     render() {
         return (
