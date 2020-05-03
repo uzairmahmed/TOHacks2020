@@ -12,6 +12,13 @@ latestInfo = 'Jonah just entered the store ';
 app.get('/', (req, res) => {
 	res.send('Hello!');
 });
+app.get('/store', (req, res) => {
+	res.send([
+		{ name: 'Costco', hours: '7AM to 10PM' },
+		{ name: 'Walmart', hours: '9AM to 6PM' },
+		{ name: 'Loblaws', hours: '10AM to 3PM' }
+	]);
+});
 app.get('/update', (req, res) => {
 	res.send({
 		list,
