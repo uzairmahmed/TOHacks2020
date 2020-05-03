@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     card: {
         flex: 1,
         marginVertical: 10,
-        marginHorizontal: 40,
+        marginHorizontal: 10,
         backgroundColor: bgColor,
     },
     login: {
@@ -37,6 +37,18 @@ const styles = StyleSheet.create({
     blockButton: {
         backgroundColor: textColor,
         fontSize:10
+    },
+    sliderInputArea: {
+        alignItems:"center",
+        width:"90%",
+        marginHorizontal: 1
+    },
+    sliderContainer: {
+        width: "100%",
+        marginHorizontal: 1
+    }, 
+    popup: {
+        marginHorizontal: 10 
     },
     search: {
         justifyContent: "center",

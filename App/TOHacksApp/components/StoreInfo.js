@@ -24,9 +24,9 @@ export default class StoreInfo extends Component {
 
         this.state = {
             panDirection: PanningProvider.Directions.DOWN,
-            position: 'bottom',
+            position: 'center',
             scroll: "vertical",
-            showHeader: true,
+            showHeader: false,
             isRounded: true,
             showDialog: false
         };
@@ -43,12 +43,8 @@ export default class StoreInfo extends Component {
     renderDialog = () => {
 
         const { showDialog, panDirection, position, scroll, showHeader, isRounded } = this.state;
-
-
-
         const renderPannableHeader = showHeader ? this.renderPannableHeader : undefined;
         const height = scroll !== this.SCROLL_TYPE.NONE ? '70%' : undefined;
-
         return (
             <Dialog
                 migrate

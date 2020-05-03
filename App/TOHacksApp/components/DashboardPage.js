@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; //some hello
+import React, { useState } from 'react';
 
 import { TouchableOpacity, FlatList } from "react-native";
 import { View, Text, TextField, Card, Button, Image } from 'react-native-ui-lib';
@@ -23,6 +23,7 @@ export default function Dashboard() {
   
   return (
     <View style={STYLES.container}>
+      <Button label="Check In" style={STYLES.blockButton} ></Button>
       <Card center style={STYLES.card}>
           <Image
             style={STYLES.map}
