@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f11b688d7773a400bc8491b6e9f950e2",
+    "revision": "4819ff99dd739b236f80fa41be581870",
     "url": "/TOHacks2020/index.html"
   },
   {
-    "revision": "3f8cf0d7a75b15f27dce",
+    "revision": "05dfe5e516eba390d5b5",
     "url": "/TOHacks2020/static/css/main.ebb5c7fc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TOHacks2020/static/js/2.8fbba52c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3f8cf0d7a75b15f27dce",
-    "url": "/TOHacks2020/static/js/main.3cb46832.chunk.js"
+    "revision": "05dfe5e516eba390d5b5",
+    "url": "/TOHacks2020/static/js/main.c7ad9b4e.chunk.js"
   },
   {
     "revision": "b2bca558661a7c8774da",
