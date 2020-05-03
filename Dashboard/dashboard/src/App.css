@@ -1,23 +1,37 @@
-.app{
-  min-height: 100vh;
-  background: lightblue;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.title {
+  border: 2px solid black;
+  text-align: center;
+  background-color: lightblue;
+  margin: 10px;
 }
 
-.tweet{
-  height: 300px;
-  width: 300px;
+.label {
+  margin: 10px;
+}
+
+.bodytext{
+  
+}
+
+.app {
+  height: 100vh;
   background: white;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-evenly;
 }
 
-.red{
-  color: red;
-  font-size: 50px;
+.table {
+  background-color: lightblue;
+  margin: 10px;
+  border: 2px solid black;
+  width:30%;
+  height: 800px;
+  margin-bottom: 10px;
+}
+
+.qrcode {
+  border: 2px solid black;
+  width: 300PX;
+  background-color: lightblue;
+  margin: 10px;
+  margin-bottom: 10px;
 }
