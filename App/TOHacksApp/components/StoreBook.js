@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Text, View, FlatList, Platform } from 'react-native';
+import { Text, View, FlatList } from 'react-native';
 
 import { Colors, Card, Button, Slider, DateTimePicker } from 'react-native-ui-lib';
 
@@ -13,9 +13,15 @@ export default class StoreBook extends Component {
 		this.state = {
 			times: [],
 			date: [ 2020, 5, 3 ],
-			length: 10
-		};
-	}
+            length: 10,
+            chosenTimeSlot: [],
+        };
+    }
+    
+    updateTimeSlot = (newValue) => {
+        this.setState({ chosenTimeSlot: newValue });
+
+    }
 
 	getAvailableTimes = () => {
 		var i;
@@ -49,7 +55,7 @@ export default class StoreBook extends Component {
 			<View style={STYLES.container}>
 				<Card center style={{ ...STYLES.popup, ...STYLES.card, borderWidth: 0 }}>
 					<Text style={{ ...STYLES.titleText, padding: 0 }}> Book a Time</Text>
-					<Text>{this.props.address || 'Missing Address'}</Text>
+					<Text>{this.props.storename || 'Missing Address'}</Text>
 
 					<Text style={{ ...STYLES.subtitleText, marginTop: 10 }}>Choose a Date</Text>
 
@@ -84,7 +90,12 @@ export default class StoreBook extends Component {
 						<FlatList
 							style={STYLES.store_list}
 							data={this.state.times}
-							renderItem={(itemData) => <TimeSlot name={this.props.storename} hour1={2} hour2={4} />}
+                            renderItem={(itemData) => <TimeSlot
+                                name={this.state.date[1]+"/"+this.state.date[2]+"/"+this.state.date[0]}
+                                hour1={2}
+                                hour2={4}
+                                updater={this.updateTimeSlot}
+                            />}
 						/>
 					</View>
 

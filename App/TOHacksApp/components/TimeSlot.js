@@ -4,27 +4,31 @@ import { StyleSheet } from 'react-native';
 import { View, Text, Card, TouchableOpacity } from 'react-native-ui-lib';
 
 import STYLES from './ComponentStyles.js';
-import StoreInfo from './StoreInfo.js';
 
 export default class Home extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: '',
-			hour1: 0,
-			hour2: 24
+			name: this.props.name,
+			hour1: this.props.hour1,
+			hour2: this.props.hour2
 		};
 	}
+
+	sendChosenTimeSlot = () => {
+		console.log(this.state.hour1);
+	}
+	
 	render() {
 		return (
 			<View>
-				<TouchableOpacity>
+				<TouchableOpacity onPress={this.sendChosenTimeSlot}>
 					<Card style={STYLES.time_item}>
 						<Text>{this.props.name || 'Missing Name'}</Text>
 						<View style={styles.inlineText}>
 							<Text>{('0' + this.props.hour1).slice(-2)}:00</Text>
 							<Text>{':'}</Text>
-							<Text>{('0' + this.props.hou2).slice(-2)}:00</Text>
+							<Text>{('0' + this.props.hour2).slice(-2)}:00</Text>
 						</View>
 					</Card>
 				</TouchableOpacity>
