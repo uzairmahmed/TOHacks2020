@@ -1,24 +1,23 @@
-import React, {useState} from "react";
-import Tweet from "./Tweet";
+import React from "react";
+import Title from "./title";
+import Table from "./table";
+import "./App.css";
+import data from "./data/customers.json";
 
-function App(){
-
-    const [user, setUser] = useState([
-        { name: "Niranjan", message: "Hi"},
-        { name: "Nirangutan", message: "Hey"},
-        { name: "Niran", message: "Hello"}
-    ]);
-
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state={
+      data: data
+    }
+  }
+  render() {
   return (
     <div className="app">
-      {user.map(user=> (
-        <Tweet name={user.name} message = {user.message}/>
-      ))}
+      <Title />
+      <Table data={this.state.data}/>
     </div>
   );    
 }
-
-
-
-
-export default App;
+}
+export default App
