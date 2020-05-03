@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
-		"dev": "nodemon index.js"
+		"dev": "nodemon index.js",
+		"deploy": "git add . && git commit -m \"heroku autocommit\" && git push heroku farhan && heroku logs --tail"
 	},
 	"author": "",
 	"license": "ISC",

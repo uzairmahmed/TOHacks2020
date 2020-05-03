@@ -9,7 +9,9 @@ list = [ { name: 'farhan', time: '6pm' } ];
 countdown = 7;
 population = 50;
 latestInfo = 'Jonah just entered the store ';
-
+app.get('/', (req, res) => {
+	res.send('Hello!');
+});
 app.get('/update', (req, res) => {
 	res.send({
 		list,
