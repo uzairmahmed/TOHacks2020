@@ -59,7 +59,8 @@ export default class StoreInfo extends Component {
                 supportedOrientations={this.supportedOrientations}
             >
                 <StoreBook
-                    storeName={name}
+                    storename={name}
+                    username={"John Doe"}
                 ></StoreBook>
             </Dialog>
         );
