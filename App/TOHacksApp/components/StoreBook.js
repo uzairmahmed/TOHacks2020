@@ -6,6 +6,7 @@ import { Colors, Card, Button, Slider, DateTimePicker } from 'react-native-ui-li
 
 import STYLES from './ComponentStyles.js';
 import TimeSlot from './TimeSlot.js';
+import API from './api.js';
 
 export default class StoreBook extends Component {
 	constructor(props) {
@@ -13,23 +14,26 @@ export default class StoreBook extends Component {
 		this.state = {
 			times: [],
 			date: [ 2020, 5, 3 ],
-            length: 10,
-            chosenTimeSlot: [],
-        };
-    }
-    
-    updateTimeSlot = (newValue) => {
-        this.setState({ chosenTimeSlot: newValue });
+			length: 10,
+			chosenTimeSlot: []
+		};
+	}
+	componentDidMount()}
 
-    }
+	updateTimeSlot = (newValue) => {
+		this.setState({ chosenTimeSlot: newValue });
+	};
 
 	getAvailableTimes = () => {
-		var i;
-		var tempArr = [];
-		for (i = 0; i < 21; i++) {
-			tempArr.push({ key: Math.random().toString(), value: i.toString() });
-		}
-		this.setState({ times: tempArr });
+		// var i;
+		// var tempArr = [];
+		API.get('/availabletimes').then(({ data }) => {
+			this.setState({ times: data });
+		});
+		// for (i = 0; i < 21; i++) {
+		// 	tempArr.push({ key: Math.random().toString(), value: i.toString() });
+		// }
+		// this.setState({ times: tempArr });
 	};
 
 	onSliderValueChange = (value) => {
@@ -42,13 +46,23 @@ export default class StoreBook extends Component {
 
 	requestBooking = () => {
 		console.log('data to be sent');
-		console.log(this.props.storename);
-		console.log(this.props.username);
-		console.log(this.state.date[0]);
-		console.log(this.state.date[1]);
-		console.log(this.state.date[2]);
-        console.log(this.state.length);
-        // ALL OF THESE ARE PUSHED TO THE BACKEND
+		// console.log(this.props.storename);
+		// // console.log(this.props.username);
+		// console.log(this.state.date[0]);
+		// console.log(this.state.date[1]);
+		// console.log(this.state.date[2]);
+		// console.log(this.state.length);
+		const { storename, username } = this.props;
+
+		API.post('/requestBooking', {
+			storename,
+			username,
+			year: this.state.date[0],
+			month: this.state.date[1],
+			day: this.state.date[2],
+			length: this.state.length
+		});
+		// ALL OF THESE ARE PUSHED TO THE BACKEND
 	};
 
 	render() {
@@ -91,12 +105,14 @@ export default class StoreBook extends Component {
 						<FlatList
 							style={STYLES.store_list}
 							data={this.state.times}
-                            renderItem={(itemData) => <TimeSlot
-                                name={this.state.date[1]+"/"+this.state.date[2]+"/"+this.state.date[0]}
-                                hour1={2}
-                                hour2={4}
-                                updater={this.updateTimeSlot}
-                            />}
+							renderItem={(itemData) => (
+								<TimeSlot
+									name={this.state.date[1] + '/' + this.state.date[2] + '/' + this.state.date[0]}
+									hour1={2}
+									hour2={4}
+									updater={this.updateTimeSlot}
+								/>
+							)}
 						/>
 					</View>
 
