@@ -11,7 +11,6 @@ export default class Home extends Component {
 		this.state = {
 			name: this.props.name,
 			hour1: this.props.hour1,
-			hour2: this.props.hour2
 		};
 	}
 
@@ -26,9 +25,7 @@ export default class Home extends Component {
 					<Card style={STYLES.time_item}>
 						<Text>{this.props.name || 'Missing Name'}</Text>
 						<View style={styles.inlineText}>
-							<Text>{('0' + this.props.hour1).slice(-2)}:00</Text>
-							<Text>{':'}</Text>
-							<Text>{('0' + this.props.hour2).slice(-2)}:00</Text>
+							<Text>{this.props.hour1}</Text>
 						</View>
 					</Card>
 				</TouchableOpacity>

@@ -13,27 +13,25 @@ export default class StoreBook extends Component {
 		super(props);
 		this.state = {
 			times: [],
-			date: [ 2020, 5, 3 ],
+			date: [2020, 5, 3],
 			length: 10,
 			chosenTimeSlot: []
 		};
 	}
-	componentDidMount()}
 
 	updateTimeSlot = (newValue) => {
 		this.setState({ chosenTimeSlot: newValue });
 	};
 
 	getAvailableTimes = () => {
-		// var i;
-		// var tempArr = [];
 		API.get('/availabletimes').then(({ data }) => {
-			this.setState({ times: data });
+			var i;
+			var tempArr = [];
+			for (i = 0; i < data.length; i++) {
+				tempArr.push({ key: Math.random().toString(), value: data[i].toString() });
+			}
+			this.setState({ times: tempArr });
 		});
-		// for (i = 0; i < 21; i++) {
-		// 	tempArr.push({ key: Math.random().toString(), value: i.toString() });
-		// }
-		// this.setState({ times: tempArr });
 	};
 
 	onSliderValueChange = (value) => {
@@ -41,7 +39,7 @@ export default class StoreBook extends Component {
 	};
 
 	onDateValueChange = (value) => {
-		this.setState({ date: [ value.getFullYear(), value.getMonth(), value.getDate() ] });
+		this.setState({ date: [value.getFullYear(), value.getMonth(), value.getDate()] });
 	};
 
 	requestBooking = () => {
@@ -108,8 +106,7 @@ export default class StoreBook extends Component {
 							renderItem={(itemData) => (
 								<TimeSlot
 									name={this.state.date[1] + '/' + this.state.date[2] + '/' + this.state.date[0]}
-									hour1={2}
-									hour2={4}
+									hour1={itemData.item.value}
 									updater={this.updateTimeSlot}
 								/>
 							)}

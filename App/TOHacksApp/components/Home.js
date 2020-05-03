@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FlatList } from 'react-native';
 
 import { View, Card, Button, Image, Dialog, PanningProvider } from 'react-native-ui-lib';
-
+import API from './api.js'
 import STYLES from './ComponentStyles.js';
 import StoreInfo from './StoreInfo.js';
 import QRScan from './QRScan.js';
@@ -64,14 +64,13 @@ export default class Home extends Component {
 
 	getNearbyStores = () => {
 		// API CALL HERE, BACKEND SEND AN ARRAY
-		// var i;
-		// var tempArr = [];
-		// for (i = 0; i < 21; i++) {
-		// 	tempArr.push({ key: Math.random().toString(), value: i.toString() });
-		// }
-		this.setState({ stores: tempArr });
 		API.get('/nearbystores').then(({ data }) => {
-			this.setState({ stores: data });
+			var i;
+			var tempArr = [];
+			for (i = 0; i < data.length; i++){
+				tempArr.push({ key: Math.random().toString(), value: data[i].toString() });
+			}
+			this.setState({ stores: tempArr });
 		});
 	};
 
@@ -81,14 +80,14 @@ export default class Home extends Component {
 				<Button label="Check In" style={STYLES.blockButton} onPress={this.showDialog} />
 				<Card center style={STYLES.card}>
 					<Image style={STYLES.map} source={require('../assets/staticmap.png')} />
-					<Button label="Login" onPress={this.getNearbyStores} style={STYLES.blockButton} />
+					<Button label="Load" onPress={this.getNearbyStores} style={STYLES.blockButton} />
 				</Card>
 
 				<View center style={STYLES.listCard}>
 					<FlatList
 						style={STYLES.store_list}
 						data={this.state.stores}
-						renderItem={(itemData) => <StoreInfo name={itemData.item.value} address={itemData.item.key} />}
+						renderItem={(itemData) => <StoreInfo name={itemData.item.value} address={"8AM - 8PM"} />}
 					/>
 				</View>
 				{this.renderDialog()}
