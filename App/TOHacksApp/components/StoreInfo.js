@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
-import {
-    Text,
-    View,
-    TouchableOpacity,
-} from 'react-native';
+import { Text, View, TouchableOpacity, } from 'react-native';
+
 import { Card, Dialog, PanningProvider } from 'react-native-ui-lib';
 
 import STYLES from "./ComponentStyles.js"
 import StoreBook from "./StoreBook.js"
-import { render } from 'react-dom';
 
 
 export default class StoreInfo extends Component {
-
     constructor(props) {
         super(props);
-
         this.SCROLL_TYPE = {
             NONE: 'none',
             VERTICAL: 'vertical',
             HORIZONTAL: 'horizontal'
-          };
-
+        };
         this.state = {
             panDirection: PanningProvider.Directions.DOWN,
             position: 'center',
@@ -32,6 +25,13 @@ export default class StoreInfo extends Component {
         };
     }
 
+    fadeInNOut = () => {
+        this.setState({ showDialog: true }); //run with an anim
+
+        delay()
+    };
+
+
     showDialog = () => {
         this.setState({ showDialog: true });
     };
@@ -40,8 +40,7 @@ export default class StoreInfo extends Component {
         this.setState({ showDialog: false });
     };
 
-    renderDialog = () => {
-
+    renderDialog = (name) => {
         const { showDialog, panDirection, position, scroll, showHeader, isRounded } = this.state;
         const renderPannableHeader = showHeader ? this.renderPannableHeader : undefined;
         const height = scroll !== this.SCROLL_TYPE.NONE ? '70%' : undefined;
@@ -59,7 +58,9 @@ export default class StoreInfo extends Component {
                 pannableHeaderProps={this.pannableTitle}
                 supportedOrientations={this.supportedOrientations}
             >
-                <StoreBook></StoreBook>
+                <StoreBook
+                    storeName={name}
+                ></StoreBook>
             </Dialog>
         );
     };
@@ -67,7 +68,6 @@ export default class StoreInfo extends Component {
 
     render() {
         var visibility = this.props.visible;
-
         var name = this.props.name;
         var address = this.props.address;
 
@@ -79,10 +79,7 @@ export default class StoreInfo extends Component {
                             {name}
                         </Text>
                         <Text>
-                            {name}
-                        </Text>
-                        <Text>
-                            {name}
+                            {address}
                         </Text>
                     </Card>
                 </TouchableOpacity>

@@ -63,11 +63,6 @@ export default function StoreBook(props) {
                         )}
                     />
                 </View>
-
-
-
-
-
             </Card>
         </View>
     )
