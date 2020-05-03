@@ -65,7 +65,8 @@ export default class Home extends Component {
 
 
 
-	getNearbyStores = () => {
+    getNearbyStores = () => {
+        // API CALL HERE, BACKEND SEND AN ARRAY
 		var i;
 		var tempArr = [];
 		for (i = 0; i < 21; i++) {

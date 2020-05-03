@@ -47,7 +47,8 @@ export default class StoreBook extends Component {
 		console.log(this.state.date[0]);
 		console.log(this.state.date[1]);
 		console.log(this.state.date[2]);
-		console.log(this.state.length);
+        console.log(this.state.length);
+        // ALL OF THESE ARE PUSHED TO THE BACKEND
 	};
 
 	render() {
