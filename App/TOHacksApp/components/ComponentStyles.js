@@ -34,7 +34,12 @@ const styles = StyleSheet.create({
         fontSize: 30,
         padding: 20
     },
+    subtitleText: {
+        fontSize: 20,
+        padding: 20
+    },    
     blockButton: {
+        margin: 10,
         backgroundColor: textColor,
         fontSize:10
     },

@@ -1,69 +1,97 @@
-import React, { useState } from 'react';
-import {
-    Text,
-    View,
-    FlatList,
-    TouchableOpacity,
-} from 'react-native';
-import { Colors, Card, Dialog, TextField, Button, DateTimePicker, Slider } from 'react-native-ui-lib';
+import React, { Component } from 'react';
+
+import { Text, View, FlatList, Platform } from 'react-native';
+
+import { Colors, Card, Button, Slider,DateTimePicker } from 'react-native-ui-lib';
+
+//import DateTimePicker from '@react-native-community/datetimepicker';
 
 import STYLES from "./ComponentStyles.js"
 
-export default function StoreBook(props) {
-    const [stores, setNearbyStore] = useState([]);
-
-    function getNearbyStores() {
-      var i;
-      var tempArr = []
-      for (i = 0; i <= 21; i++) {
-          tempArr.push({ key: Math.random().toString() , value: i.toString()});
-      }
-      console.log(stores);
-      setNearbyStore(tempArr);
+export default class StoreBook extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            times: [],
+            date: [2020,5,3],
+            length: 10,
+        };
     }
 
-    return (
-        <View style={STYLES.container}>
-            <Card center style={STYLES.popup, STYLES.card}>
-                <Text style={STYLES.titleText} > Book a Time.</Text>
-                <Text>Walmart</Text>
+    getAvailableTimes = () => {
+        var i;
+        var tempArr = []
+        for (i = 0; i < 21; i++) {
+            tempArr.push({ key: Math.random().toString(), value: i.toString() });
+        }
+        this.setState({ times: tempArr });
+    }
 
-                <Text>Pick a Date</Text>
+    onSliderValueChange = (value) => {
+        this.setState({ length: value });
+    }
 
-                <DateTimePicker
-                    title={'Date'}
-                    placeholder={'Select a date'}
-                    dateFormat={'MMM D, YYYY'}
-                // value={new Date('October 13, 2014')} 
-                />
-                <View row centerV style={STYLES.sliderInputArea}>
-                    <Text>Select a Length</Text>
-                    <Slider
-                        value={10}
-                        minimumTrackTintColor={Colors.dark10}
-                        maximumTrackTintColor={Colors.dark60}
-                        thumbTintColor={Colors.dark10}
-                        minimumValue={0}
-                        maximumValue={60}
-                        step={10}
-                        containerStyle={STYLES.sliderContainer}
+    onDateValueChange = (value) => {
+        this.setState({ date: [value.getFullYear(), value.getMonth(), value.getDate()] });
+    }
+
+    requestBooking = () => {
+        console.log("data to be sent");
+        console.log(this.props.storename);
+        console.log(this.props.username);
+        console.log(this.state.date[0]);
+        console.log(this.state.date[1]);
+        console.log(this.state.date[2]);
+        console.log(this.state.length);
+    }
+
+    render() {      
+        return (
+            <View style={STYLES.container}>
+                <Card center style={STYLES.popup, STYLES.card}>
+                    <Text style={STYLES.titleText} > Book a Time.</Text>
+                    <Text>{this.props.address}</Text>
+
+                    <Text style={STYLES.subtitleText}>Choose a Date</Text>
+
+                    <DateTimePicker
+                        value={new Date(2020,4,3,0,0,0,0)}
+                        mode={'date'}
+                        display="default"
+                        onChange={this.onDateValueChange}
                     />
-                    <Text>minutes</Text>
-                    <Button label="Login" onPress={getNearbyStores.bind()} style={STYLES.blockButton} ></Button>
-                </View>
+                    <View row centerV style={STYLES.sliderInputArea}>
+                        <Text style={STYLES.subtitleText}>Enter a Booking Length</Text>
+                        <Slider
+                            onValueChange={this.onSliderValueChange}
+                            value={10}
+                            minimumTrackTintColor={Colors.dark10}
+                            maximumTrackTintColor={Colors.dark60}
+                            thumbTintColor={Colors.dark10}
+                            minimumValue={0}
+                            maximumValue={60}
+                            step={10}
+                            containerStyle={STYLES.sliderContainer}
+                        />
+                        <Text>{this.state.length} minutes</Text>
+                        <Button label="Choose an Available Time Slot" onPress={this.getAvailableTimes} style={STYLES.blockButton} ></Button>
+                    </View>
 
-                <Text>Choose a Time Slot</Text>
+                    <View center style={STYLES.listCard}>
+                        <FlatList
+                            style={STYLES.store_list}
+                            data={this.state.times}
+                            renderItem={itemData => (
+                                <Text> {itemData.item.value} </Text>
+                            )}
+                        />
+                    </View>
 
-                <View center style={STYLES.listCard}>
-                    <FlatList
-                        style={STYLES.store_list}
-                        data={stores}
-                        renderItem={itemData => (
-                            <Text> Panda </Text>
-                        )}
-                    />
-                </View>
-            </Card>
-        </View>
-    )
+                    <View>
+                        <Button label="Book!" onPress={this.requestBooking} style={STYLES.blockButton} ></Button>
+                    </View>
+                </Card>
+            </View>
+        )
+    }
 }
