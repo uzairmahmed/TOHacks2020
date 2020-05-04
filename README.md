@@ -5,7 +5,7 @@
 
 **[https://devpost.com/software/tohacks-project](https://devpost.com/software/tohacks-project)**
 
-![logo](https://github.com/vrgeo/TOHacks2020/blob/master/images/logo.png)
+![logo](https://github.com/uzairmahmed/TOHacks2020/blob/master/images/logo.png)
 
 ## Inspiration
 As we are currently in the midst of a pandemic, we have all noticed that there are extremely lengthy line-ups in front of grocery stores, often taking 20-30 minutes to traverse, due to social distancing principles. We decided to create a product which would assist in eliminating these lines; by allowing people to book time slots beforehand to go and buy their necessities. We believe that the more attention Bookorona receives from people who stand in these line-ups, the greater of a chance they themselves will try out our faster and more efficient alternative.
